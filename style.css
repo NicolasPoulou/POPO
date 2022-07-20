@@ -1,9 +1,8 @@
 *
 {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 body
 {
@@ -11,59 +10,63 @@ body
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(45deg, #ff0057, #2196f3);
+    background: #222;
 }
-h2
-{
-    
-    position: relative;
-    display: flex;
-    gap: 5px;
-    color: #fff;
-    font-size: 4em;
-    cursor: pointer;
-}
-h2 span
+.box
 {
     position: relative;
-    filter: blur(5px);
-    padding: 0 5px;
-    transition: 0.5s;
+    width: 400px;
+    height: 300px;
+    /*background: #fff;*/
 }
-h2 span:hover
-{
-    filter: blur(0px);
-    transition: 0s;
-}
-h2 span i 
+.box span
 {
     position: absolute;
     inset: 0;
-    background: transparent;
+    transition: 0.5;
+    background: url(img/img.jpg);
+    background-size: cover;
 }
-h2 span:hover i::before
-{ 
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 2px;
-height: 8px;
-background: #fff;
-box-shadow: 0 53px #fff,
-36px 53px #fff,
-36px 0 #fff;
+.box span:nth-child(1)
+{
+    clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+    /*background: #a00; */
+    transition-delay: 0ms;
 }
-h2 span:hover i::after
-{ 
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 8px;
-height: 2px;
-background: #fff;
-box-shadow: 0 60px #fff,
-30px 60px #fff,
-36px 0 #fff;
+.box span:nth-child(2)
+{
+    clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%);
+    /*background: #0a0;*/
+    transition-delay: 0.25s;
+}
+.box span:nth-child(3)
+{
+    clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+    /*background: #00a;*/
+    transition-delay: 0.5s;
+}
+.box span:nth-child(4)
+{
+    clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+    /*background: #aa0;*/
+    transition-delay: 0.75s;
+}
+
+/* hover effectes */
+.box:hover span:nth-child(1)
+{
+transform: translate(-40px,-60px) rotate(-15deg);
+}
+.box:hover span:nth-child(2)
+{
+    transform: translate(40px,-100px)rotate(25deg);
+}
+.box:hover span:nth-child(3)
+{
+    transform: translate(-40px,80px)rotate(15deg);
+
+}
+.box:hover span:nth-child(4)
+{
+    transform: translate(40px,80px)rotate(-15deg);
 }
